@@ -1,0 +1,520 @@
+<html>
+<head>
+<style>
+body { 
+	margin: 0; 
+	font-family: 'Roboto', sans-serif;
+}
+
+.hero {
+	color: #eee;
+	min-height: 200px;
+	height: 90vh;
+	min-height: 300px;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://coverssocial.com/wp-content/uploads/2015/09/BusinessOffice-Morning-Coffee.jpeg?h=500&w=1500&q=90') no-repeat center;
+	background-size: cover;
+	position: relative;
+}
+
+.hero .wrapper {
+	width: 70%;
+	max-width: 710px;
+	margin: auto;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+}
+
+.search-container {
+  	display: flex;
+	border-radius: 3px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+}
+
+.search-box {
+  flex: 1;
+  background-color: hsla(31,15%,100%,.75);
+  border: hsla(99,15%,50%,.75);
+  padding: 0.5em 0.75em;
+  transition: background-color .5s ease;
+  font-weight: 800;
+}
+
+header .search-container {
+	display: none;
+}
+
+body.down header.clone .search-container {
+	width: 430px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+}
+
+body.down header.clone .search-submit,
+footer {
+	background-color: rgba(15, 150, 50, .75);
+	padding: 0 10px;
+}
+
+body.down header.clone .search-submit:hover,
+body.down header.clone .search-submit:focus {
+	background-color: rgba(15, 150, 50, 1);
+}
+
+.search-box:not(:first-child) {
+  border-left: 0;
+}
+
+.search-box:not(:last-child) {
+  border-right: 0;
+}
+
+.search-submit {
+  font: inherit;
+  font-weight: normal;
+  padding: 0 5%;
+  background-color: rgba(15, 50, 150, .75);
+  transition: background-color .5s ease;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.search-box:hover,
+.search-box:focus,
+.search-submit:focus {
+	background-color: hsla(31, 15%, 100%, 1)
+}
+
+.search-submit:hover,
+.search-submit:focus {
+	background-color: rgba(15, 50, 150, 1);
+}
+
+
+.search-submit:hover {
+	animation-name: bounce;
+    animation-timing-function: ease;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+
+.search-box,
+.search-submit {
+  border: 1px solid rgba(147, 128, 108, 0.25);
+  font-size: 25px;
+}
+
+.search-box:first-child,
+.search-submit:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+.search-box:last-child,
+.search-submit:last-child {
+  border-radius: 0 2px 2px 0;
+}
+
+.hero-title {
+	font-weight: 300;
+	font-size: 74px;
+	margin: 0 0 25px 0;
+	display: block;
+}
+
+.hero-subtitle-section {
+	font-size: 25px;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+}
+
+.hero-subtitle {
+	display: block;
+}
+
+
+header.clone {
+  position: fixed;
+  top: -70px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: 0.2s top cubic-bezier(.3,.73,.3,.74);
+}
+
+body.down header.clone {
+  top: 0;
+  height: 70px;
+  background-color: rgba(30, 60, 150, 1);
+}
+
+body.down header.clone .header-logo-image {
+	top: 10px;
+	left: 10px;
+}
+
+.header-search {
+	display: block;
+}
+
+body.down header.clone .header-search {
+	display: block;
+}
+
+
+.header-buttons {
+	display: flex;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.header-button {
+	font-weight: 300;
+	color: #ddd;
+	font-size: 16px;
+	padding: 10px;
+	margin: 0 10px;
+	border: transparent 1px solid;
+	transition: all .5s ease;
+	cursor: pointer;
+
+	background: none;
+	border: 0;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.header-button::before, .header-button::after {
+  box-sizing: inherit;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.header-logo-image {
+	cursor: pointer;
+	filter: brightness(0) invert(1);
+	width: 50px;
+    margin: 0 0 0 20px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    transition: filter .5s ease;
+}
+
+.header-logo-image:hover {
+	filter: brightness(1.5) invert(0);
+}
+
+.home-section {
+	color: #333;
+	padding: 50px;
+	text-align: center;
+	background-color: rgb(240, 240, 240);
+}
+
+.home-section:nth-of-type(even) {
+	background-color: rgb(222, 222, 240);
+}
+
+.home-section-title {
+	font-size: 30px;
+	margin: 0 0 5px 0;
+}
+
+.home-section-subtitle {
+	font-size: 20px;
+	margin: 0 0 10px 0;
+}
+
+.section-content {
+	width: 100%;
+	max-width: 964px;
+	margin: auto;
+}
+
+.standard-link {
+	text-decoration: none;
+}
+
+.icon-panel {
+	width: 100%;
+	display: flex;
+}
+
+.panel-item {
+	flex: 1;
+	margin: 30px;
+	cursor: pointer;
+}
+
+.panel-item-icon {
+	margin: 0 0 30px 0;
+	width: 100%;
+	transition: all .5s ease;
+}
+
+.panel-item:hover .panel-item-icon {
+	transform: scale(1.05);
+}
+
+.panel-item-text {
+	font-size: 25px;
+}
+
+.section-header {
+	margin: 0 0 30px 0;
+}
+
+.dark-header {
+	color: #eee;
+}
+
+.office-bg {
+	background: linear-gradient( rgba(0, 50, 100, 0.75), rgba(0, 50, 100, 0.75) ), url(https://s-media-cache-ak0.pinimg.com/originals/62/c7/f9/62c7f9989f520787bf9811d3569d4ad4.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.item-grid {
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+}
+
+.grid-item {
+	flex: 1;
+	margin: 10px;
+}
+
+.grid-item-button {
+  background: #eef;
+  border: 0;
+  box-sizing: border-box;
+  padding: 1em 2em;
+  box-shadow: inset 0 0 0 2px #f45e61;
+  color: #333;
+  font-size: inherit;
+  font-weight: 700;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.grid-item-button::before, .grid-item-button::after {
+  box-sizing: inherit;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.draw {
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+.draw::before, .draw::after {
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+.draw::before {
+  top: 0;
+  left: 0;
+}
+.draw::after {
+  bottom: 0;
+  right: 0;
+}
+.draw:hover {
+  color: #60daaa;
+}
+.draw:hover::before, .draw:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.draw:hover::before {
+  border-top-color: #60daaa;
+  border-right-color: #60daaa;
+  -webkit-transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+.draw:hover::after {
+  border-bottom-color: #60daaa;
+  border-left-color: #60daaa;
+  -webkit-transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+  transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+.meet:hover {
+  color: #60daaa;
+}
+.meet::after {
+  top: 0;
+  left: 0;
+}
+.meet:hover::before {
+  border-top-color: #60daaa;
+  border-right-color: #60daaa;
+}
+.meet:hover::after {
+  border-bottom-color: #60daaa;
+  border-left-color: #60daaa;
+  -webkit-transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+
+.spin {
+  width: 9em;
+  height: 9em;
+  padding: 10px;
+}
+.spin:hover {
+  color: #0eb7da;
+}
+.spin::before, .spin::after {
+  top: 0;
+  left: 0;
+}
+.spin::before {
+  border: 4px solid transparent;
+}
+.spin:hover::before {
+  border-top-color: #0eb7da;
+  border-right-color: #0eb7da;
+  border-bottom-color: #0eb7da;
+  -webkit-transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+  transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+}
+.spin::after {
+  border: 0 solid transparent;
+}
+.spin:hover::after {
+  border-top: 4px solid #0eb7da;
+  border-left-width: 4px;
+  border-right-width: 4px;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+  transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+  transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+  transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+}
+
+.circle {
+  border-radius: 100%;
+  box-shadow: none;
+}
+.circle::before, .circle::after {
+  border-radius: 100%;
+}
+
+.video-section {
+	width: 560px;
+	height: 315px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $header = $("header"),
+      $clone = $header.before($header.clone().addClass("clone"));
+
+  $(window).on("scroll", function() {
+    var fromTop = $("body").scrollTop();
+    console.log(fromTop)
+    $('body').toggleClass("down", (fromTop > 200));
+  });
+});
+</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+<div class="hero">
+	<div class="wrapper">
+		<h1 class="hero-title">Work for Los Angeles</h1>
+		<h2 class="hero-subtitle-section">
+		<span class="hero-subtitle">With 46% of the City's workforce now eligible to retire,</span>
+		<span class="hero-subtitle">there are plenty of opportunities to make a difference!</span>
+		</h2>
+		<div class="search-container">
+		  <input class="search-box">
+		  <button class="search-submit">Search</button>
+		</div>
+	</div>
+</div>
+<header class="header">
+<img class="header-logo-image" src="https://lametrochamber.com/wp-content/uploads/2016/08/LAMCC_LA_icon_positive.png">
+<div class="search-container">
+  <input class="search-box">
+  <button class="search-submit">Search</button>
+</div>
+<div class="header-buttons">
+	<button class="header-button draw meet">Find Opportunities</button>
+	<button class="header-button draw meet">Learn More</button>
+</div>
+</header>
+
+<div class="home-section">
+<div class="section-content">
+<div class="section-header">
+	<h3 class="home-section-title">Not your typical job search</h3>
+	<h4 class="home-section-subtitle">Apply to take an exam and learn about open positions.</h4>
+	<a class="standard-link" href="#">Learn more ></a>
+</div>
+<div class="icon-panel">
+	<div class="panel-item">
+		<img class="panel-item-icon" src="https://image.flaticon.com/icons/svg/297/297550.svg">
+		<div class="panel-item-text">Find a job class</div>
+	</div>
+	<div class="panel-item">
+		<img class="panel-item-icon" src="https://image.flaticon.com/icons/svg/297/297577.svg">
+		<div class="panel-item-text">Apply for the exam</div>
+	</div>
+	<div class="panel-item">
+		<img class="panel-item-icon" src="https://image.flaticon.com/icons/svg/297/297542.svg">
+		<div class="panel-item-text">Take the exam</div>
+	</div>
+</div>
+</div>
+</div>
+<div class="home-section office-bg">
+<div class="section-content">
+<div class="section-header dark-header">
+	<h3 class="home-section-title">Explore</h3>
+	<h4 class="home-section-subtitle">Select a category below to see a list of related job classes</h4>
+</div>
+<div class="item-grid">
+	<div class="grid-item"><button class="grid-item-button spin circle">Accounting</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Science</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Administration</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Technology</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Public Safety</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Building Ops</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Education</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Public Relations</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Parks & Rec</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Transportation</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Legal</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Construction</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Marketing</button></div>
+	<div class="grid-item"><button class="grid-item-button spin circle">Logistics</button></div>
+</div>
+</div>
+</div>
+<div class="home-section">
+<iframe class="video-section" src="https://www.youtube.com/embed/94AqhIt__fo" frameborder="0" allowfullscreen></iframe>
+</div>
+<footer>
+</footer>
+</body>
+</html>
